@@ -1,4 +1,3 @@
-Visualizer/test_tf.h5
-coherence_test.ipynb
-testing/test.ipynb
-*.ipynb
+*.pyc
+/brainheart.egg-info
+/build
