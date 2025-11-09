@@ -1,7 +1,9 @@
 import mne_bids
 import mne
+
+from brainheart.config import bids_root
+
 def load(index = 1):
-    bids_root = r"D:/DABI/StimulationDataset"
     ext = "vhdr" #extension for the recording
     subject = "4r3o" #sample
     sess = "postimp"
