@@ -71,9 +71,9 @@ This package provides an example script, found in test_ecg_widget.py. The refere
 
 Afterwards, you can run the script as follows: 
 
-'''bash
+```bash
 python -i .\brainheart\demo.py
-'''
+```
 
 ## Dependencies
 
