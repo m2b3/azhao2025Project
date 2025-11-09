@@ -20,7 +20,7 @@ def simulate_dummy_raw_with_rsp(length_sec: int = 10,
     )
 
 if __name__ == "__main__": 
-    from brainheart.resp_wrappers import resp_process_neurokit
+    from brainheart.wrappers.resp_wrappers import resp_process_neurokit
 
     rsp_raw_array = simulate_dummy_raw_with_rsp()
     print(resp_process_neurokit(rsp_raw_array))

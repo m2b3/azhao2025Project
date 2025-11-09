@@ -8,7 +8,7 @@ from mne.utils import logger, verbose
 
 from functools import partial, wraps
 
-from brainheart.annotations_utils import (
+from brainheart.utils.annotations_utils import (
     _annotations_start_stop_improved, 
     _onsets_ends_to_intervals, 
     _intervals_to_onsets_ends, 
@@ -16,7 +16,7 @@ from brainheart.annotations_utils import (
     _intervals_subtraction_boolean, 
     write_to_annotations)
 
-from brainheart.utils import (
+from brainheart.utils.utils import (
     _intervals_from_mask, 
     _write_events_dict_to_stim, 
     _peaks_from_intervals, 
@@ -35,12 +35,12 @@ from brainheart.loading.ecg_loading import (
 )
 
 
-from brainheart.event_detection import (
+from brainheart.utils.event_detection import (
     find_events, 
     sliding_window_accept_reject)
 
-from brainheart.ecg_channel_names_enum import ECG_Channels
-from brainheart.ecg_annotations_enum import ECG_Annotations
+from brainheart.enums.ecg_channel_names_enum import ECG_Channels
+from brainheart.enums.ecg_annotations_enum import ECG_Annotations
 
 def ecg_process_neurokit(
         raw: mne.io.BaseRaw, 
@@ -597,29 +597,3 @@ def annotate_bradycardia(
         annotations_to_keep = annotations_to_keep, 
         annotations_to_reject = annotations_to_reject, 
     )    
-
-
-if __name__ == "__main__": 
-    from load_reference_dataset import load
-    raw = load(0)
-
-    from loading.ecg_loading import annotate_valid_ecg_periods, load_ecg, identify_ecg_channel
-    annotate_valid_ecg_periods(raw)
-    identify_ecg_channel(raw)
-    ecg = load_ecg(raw)
-    find_ecg_events_neurokit(raw)
-    ecg_quality_sliding_window_zhao2018_neurokit(
-        raw,
-        window_overlap_sec = 15, 
-        keep_barely_acceptable=False)
-    ecg_clean_neurokit(raw)
-    #ecg_fixpeaks_neurokit(raw)
-    rate = hr_neurokit2(raw, min_N_peaks = 1)
-
-    ecg_delineate_neurokit2(raw)
-
-    annotate_bradycardia(raw)
-
-    ecg_fixpeaks_neurokit(raw)
-
-    hr_corrected_neurokit(raw)

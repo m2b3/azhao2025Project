@@ -1,3 +1,4 @@
 *.pyc
 /brainheart.egg-info
 /build
+brainheart/.vscode/settings.json

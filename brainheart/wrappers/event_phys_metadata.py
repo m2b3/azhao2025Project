@@ -3,7 +3,7 @@ import pandas as pd
 
 import mne
 
-from brainheart.ecg_channel_names_enum import ECG_Channels
+from brainheart.enums.ecg_channel_names_enum import ECG_Channels
 
 phys_metadata_columns = [
     ECG_Channels.ECG_Phase_Completion_Atrial.value, 

@@ -3,12 +3,12 @@ import numpy as np
 
 from mne.preprocessing.ecg import _make_ecg
 
-from brainheart.annotations_utils import _annotations_start_stop_improved, write_to_annotations
+from brainheart.utils.annotations_utils import _annotations_start_stop_improved, write_to_annotations
 
-from brainheart.ecg_annotations_enum import ECG_Annotations
-from brainheart.utils import _add_data_to_raw
+from brainheart.enums.ecg_annotations_enum import ECG_Annotations
+from brainheart.utils.utils import _add_data_to_raw
 
-from brainheart.ecg_channel_names_enum import ECG_Channels
+from brainheart.enums.ecg_channel_names_enum import ECG_Channels
 
 from functools import wraps
 
@@ -152,7 +152,7 @@ def load_ecg_peaks(
                 raw, 
                 peak_ch_name = ecg_ch_name)
             # Now run the Peak Extraction
-            from brainheart.ecg_wrappers import find_ecg_events_neurokit
+            from brainheart.wrappers.ecg_wrappers import find_ecg_events_neurokit
             
             ecg_peak_data = find_ecg_events_neurokit(
                 raw, 
@@ -185,7 +185,7 @@ def load_ecg_peaks_corrected(
         event_id: int | list[str] | None = None, 
 ): 
     if not _ch_name_and_type_in_raw(raw, peak_corrected_ch_name, "ecg"): 
-        from brainheart.ecg_wrappers import ecg_fixpeaks_neurokit
+        from brainheart.wrappers.ecg_wrappers import ecg_fixpeaks_neurokit
         ecg_fixpeaks_neurokit(
             raw, 
             ecg_peaks_ch_name = peak_ch_name, 

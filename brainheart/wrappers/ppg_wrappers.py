@@ -10,10 +10,10 @@ from mne.annotations import _annotations_starts_stops
 
 from functools import partial
 
-from annotations_utils import _annotations_start_stop_improved, _onsets_ends_to_intervals, _intervals_to_onsets_ends
-from utils import _intervals_from_mask, _write_events_dict_to_stim, _peaks_from_intervals, _format_peaks
-from event_detection import find_events, sliding_window_accept_reject
-from ecg_wrappers import _select_single_ecg_channel, neurokit_ch_names_to_types
+from brainheart.utils.annotations_utils import _annotations_start_stop_improved, _onsets_ends_to_intervals, _intervals_to_onsets_ends
+from brainheart.utils.utils import _intervals_from_mask, _write_events_dict_to_stim, _peaks_from_intervals, _format_peaks
+from brainheart.utils.event_detection import find_events, sliding_window_accept_reject
+from brainheart.wrappers.ecg_wrappers import _select_single_ecg_channel, neurokit_ch_names_to_types
 
 
 def ppg_process_neurokit(

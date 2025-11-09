@@ -5,11 +5,11 @@ import neurokit2 as nk
 import pandas as pd
 import numpy as np
 
-from utils import _write_events_dict_to_stim, _add_data_to_raw
+from brainheart.utils.utils import _write_events_dict_to_stim, _add_data_to_raw
 
 from loading.ecg_loading import  load_hr
 
-from annotations_utils import _annotations_start_stop_improved, _onsets_ends_to_intervals
+from brainheart.utils.annotations_utils import _annotations_start_stop_improved, _onsets_ends_to_intervals
 
 
 def resp_process_neurokit(
@@ -134,7 +134,7 @@ def resp_from_ecg_neurokit(
 
 if __name__ == "__main__": 
 
-    from brainheart.rsp_test import simulate_dummy_raw_with_rsp
+    from brainheart.testing.rsp_test import simulate_dummy_raw_with_rsp
     rsp_raw_array = simulate_dummy_raw_with_rsp(100)
     print(resp_process_neurokit(rsp_raw_array))
 

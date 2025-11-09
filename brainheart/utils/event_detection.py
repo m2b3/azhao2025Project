@@ -4,7 +4,7 @@ from mne.utils import verbose
 import numpy as np
 from typing import Callable
 
-from brainheart.annotations_utils import _annotations_start_stop_improved
+from brainheart.utils.annotations_utils import _annotations_start_stop_improved
 
 @verbose
 def find_events(

@@ -1,9 +1,9 @@
 import mne
 import numpy as np
 
-#from mne.brainheart.loading import _load_hr
+#from brainheart.loading import _load_hr
 from mne.time_frequency.psd import psd_array_welch
-from mne.brainheart.annotations_utils import _annotations_start_stop_improved
+from brainheart.utils.annotations_utils import _annotations_start_stop_improved
 
 import matplotlib.pyplot as plt
 

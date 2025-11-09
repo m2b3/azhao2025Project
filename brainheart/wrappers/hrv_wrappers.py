@@ -4,8 +4,8 @@ import pandas as pd
 
 import mne
 
-from ecg_wrappers import _load_ecg_peaks, _peaks_from_intervals
-from annotations_utils import _annotations_start_stop_improved, _onsets_ends_to_intervals, _intervals_intersection
+from brainheart.wrappers.ecg_wrappers import _load_ecg_peaks, _peaks_from_intervals
+from brainheart.utils.annotations_utils import _annotations_start_stop_improved, _onsets_ends_to_intervals, _intervals_intersection
 
 def compute_hrv_time_neurokit(
         raw: mne.io.BaseRaw, 
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     import mne_bids
     import mne
 
-    from ecg_wrappers import find_ecg_events_neurokit, _add_data_to_raw
+    from brainheart.wrappers.ecg_wrappers import find_ecg_events_neurokit, _add_data_to_raw
 
     bids_root = r"D:/DABI/StimulationDataset"
     ext = "vhdr" #extension for the recording
